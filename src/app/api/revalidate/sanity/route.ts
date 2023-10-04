@@ -1,5 +1,5 @@
 import { isValidSignature, SIGNATURE_HEADER_NAME } from '@sanity/webhook';
-import { revalidateTag } from 'next/cache';
+import { revalidatePath, revalidateTag } from 'next/cache';
 import { NextResponse } from 'next/server';
 
 const secret = process.env.SANITY_CONTENT_PAGE_WEBHOOK_SECRET ?? '';
@@ -9,7 +9,7 @@ export async function POST(request: Request) {
   const signature = request.headers.get(SIGNATURE_HEADER_NAME) || '';
   const body = await request.json();
 
-  const isBlogPageUpdate = topic === 'blog-post';
+  const isBlogPageUpdate = topic === 'post';
 
   if (!isValidSignature(JSON.stringify(body), signature, secret)) {
     console.error('Invalid sanity webhook secret');
@@ -30,6 +30,9 @@ export async function POST(request: Request) {
 
     console.log(`Revalidating tag: ${tag}`);
     revalidateTag(tag);
+
+    console.log(`Revalidating path: /blog`);
+    revalidatePath('/blog');
   }
 
   return NextResponse.json({ status: 200, revalidated: true, now: Date.now() });

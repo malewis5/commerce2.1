@@ -30,7 +30,9 @@ const getPreview = (post: Post) => {
 };
 
 export default async function Page() {
-  const posts = await sanityFetch<Post[]>({ query: postsQuery });
+  const posts = await sanityFetch<Post[]>({
+    query: postsQuery,
+  });
 
   const headlinePost = posts[0];
 

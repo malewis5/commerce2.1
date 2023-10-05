@@ -2,21 +2,18 @@ import PreviewProvider from '@/components/preview/PreviewProvider';
 import { SanityDocument } from 'next-sanity';
 import { draftMode } from 'next/headers';
 import React from 'react';
-import { pageQuery } from '../../sanity/lib/queries';
-import { sanityFetch, token } from '../../sanity/lib/sanity-fetch';
+import { pageQuery } from '../../../sanity/lib/queries';
+import { sanityFetch, token } from '../../../sanity/lib/sanity-fetch';
 import Hero from '@/components/Hero';
 
 export default async function Page({ params }: { params: any }) {
   const isDraftMode = draftMode().isEnabled;
-  params.slug = '/';
 
   const page = await sanityFetch<SanityDocument>({
     query: pageQuery,
     params,
-    tags: ['/'],
+    tags: [params.slug],
   });
-
-  console.log(page.pageBuilder);
 
   if (isDraftMode && token) {
     return (

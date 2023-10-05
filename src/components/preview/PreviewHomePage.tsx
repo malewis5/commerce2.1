@@ -10,14 +10,15 @@ export default function PreviewHomePage({ page }: { page: SanityDocument }) {
   const params = useParams();
   params.slug = '/';
   const [data] = useLiveQuery(page, postQuery, params);
-
+  console.log(data);
   return (
     <>
-      {data.pageBuilder.map((block: any) => {
-        if (block._type === 'hero') {
-          return <Hero block={block} key={block._key} />;
-        }
-      })}
+      {data &&
+        data.pageBuilder.map((block: any) => {
+          if (block._type === 'hero') {
+            return <Hero block={block} key={block._key} />;
+          }
+        })}
     </>
   );
 }

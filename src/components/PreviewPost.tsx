@@ -3,7 +3,7 @@
 import { useParams } from 'next/navigation';
 import type { SanityDocument } from '@sanity/client';
 import { useLiveQuery } from '@sanity/preview-kit';
-import { postQuery } from '../..//sanity/lib/queries';
+import { postQuery } from '../lib/sanity/queries';
 import Post from '@/components/Post';
 
 export default function PreviewPost({ post }: { post: SanityDocument }) {

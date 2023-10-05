@@ -1,12 +1,12 @@
 import React from 'react';
-import { sanityFetch } from '../../../sanity/lib/sanity-fetch';
-import { postsQuery } from '../../../sanity/lib/queries';
+import { sanityFetch } from '../../lib/sanity/sanity-fetch';
+import { postsQuery } from '../../lib/sanity/queries';
 import Link from 'next/link';
 import { PortableText } from '@portabletext/react';
 import { components } from '@/components/portable-text';
 import Image from 'next/image';
 import PostCard from '@/components/PostCard';
-import { Post } from '../../../sanity/schemas/post';
+import { Post } from '../../lib/sanity/schemas/post';
 import { PortableTextBlock } from 'sanity';
 
 const getHeadline = (post: Post) => {

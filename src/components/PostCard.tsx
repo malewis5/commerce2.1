@@ -1,7 +1,7 @@
 import Link from 'next/link';
 import React from 'react';
 import Image from 'next/image';
-import { Post } from '../../sanity/schemas/post';
+import { Post } from '../lib/sanity/schemas/post';
 
 export default function PostCard({ post }: { post: Post }) {
   const date = new Date(post.publishedAt);

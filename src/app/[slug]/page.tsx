@@ -5,6 +5,7 @@ import React from 'react';
 import { pageQuery } from '../../../sanity/lib/queries';
 import { sanityFetch, token } from '../../../sanity/lib/sanity-fetch';
 import Hero from '@/components/Hero';
+import PreviewPage from '@/components/preview/PreviewPage';
 
 export default async function Page({ params }: { params: any }) {
   const isDraftMode = draftMode().isEnabled;
@@ -18,7 +19,7 @@ export default async function Page({ params }: { params: any }) {
   if (isDraftMode && token) {
     return (
       <PreviewProvider token={token}>
-        <div>Home</div>
+        <PreviewPage page={page} />
       </PreviewProvider>
     );
   }

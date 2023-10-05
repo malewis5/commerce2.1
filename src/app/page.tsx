@@ -5,23 +5,22 @@ import React from 'react';
 import { pageQuery } from '../../sanity/lib/queries';
 import { sanityFetch, token } from '../../sanity/lib/sanity-fetch';
 import Hero from '@/components/Hero';
+import PreviewHomePage from '@/components/preview/PreviewHomePage';
 
-export default async function Page({ params }: { params: any }) {
+export default async function Page({ params }: { params: { slug: string } }) {
   const isDraftMode = draftMode().isEnabled;
   params.slug = '/';
 
   const page = await sanityFetch<SanityDocument>({
     query: pageQuery,
     params,
-    tags: ['/'],
+    tags: [params.slug],
   });
-
-  console.log(page.pageBuilder);
 
   if (isDraftMode && token) {
     return (
       <PreviewProvider token={token}>
-        <div>Home</div>
+        <PreviewHomePage page={page} />
       </PreviewProvider>
     );
   }

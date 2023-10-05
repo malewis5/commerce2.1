@@ -4,7 +4,7 @@ import { sanityFetch, token } from '../../../../sanity/lib/sanity-fetch';
 import PreviewProvider from '@/components/preview/PreviewProvider';
 import { SanityDocument } from 'next-sanity';
 import { draftMode } from 'next/headers';
-import PreviewPost from '@/components/PreviewPost';
+import PreviewPost from '@/components/preview/PreviewPost';
 import { client } from '../../../../sanity/lib/client';
 
 export async function generateStaticParams() {

@@ -16,14 +16,12 @@ export default defineType({
   icon: DocumentTextIcon,
   preview: {
     select: {
-      title: 'heading',
-      image: 'image',
+      title: 'Blog Grid',
     },
-    prepare({ title, image }) {
+    prepare() {
       return {
-        title: title || 'Untitled',
-        subtitle: 'Hero',
-        media: image || DocumentTextIcon,
+        title: 'Blog Grid' || 'Untitled',
+        media: DocumentTextIcon,
       };
     },
   },

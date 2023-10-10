@@ -14,4 +14,17 @@ export const postPathsQuery = groq`*[_type == "post" && defined(slug.current)][]
   }`;
 
 // Get a single page by its slug
-export const pageQuery = groq`*[_type == "page" && slug.current == $slug][0]`;
+export const pageQuery = groq`*[_type == "page" && slug.current == $slug][0]{
+    pageBuilder[]{
+      ...,
+      _type == 'blogGrid' => {
+        ...,
+        blogs[]->{
+          ...,
+        }
+      },
+      _type == 'collectionGrid' => {
+        ...,
+      },
+    }
+}`;

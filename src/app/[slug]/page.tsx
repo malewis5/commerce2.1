@@ -1,10 +1,11 @@
-import PreviewProvider from '@/components/preview/PreviewProvider';
 import { SanityDocument } from 'next-sanity';
-import { draftMode } from 'next/headers';
 import React from 'react';
-import { pageQuery } from '../../../sanity/lib/queries';
-import { sanityFetch, token } from '../../../sanity/lib/sanity-fetch';
-import Hero from '@/components/Hero';
+
+import Hero from '@/components/page-builder/Hero';
+import { pageQuery } from '@/lib/sanity/queries';
+import { sanityFetch } from '@/lib/sanity/sanity-fetch';
+import BlogGrid from '@/components/page-builder/BlogGrid';
+import CollectionGrid from '@/components/page-builder/CollectionGrid';
 
 export default async function Page({ params }: { params: { slug: string } }) {
   const page = await sanityFetch<SanityDocument>({
@@ -18,6 +19,10 @@ export default async function Page({ params }: { params: { slug: string } }) {
       {page.pageBuilder.map((block: any) => {
         if (block._type === 'hero') {
           return <Hero block={block} key={block._key} />;
+        } else if (block._type === 'blogGrid') {
+          return <BlogGrid block={block} key={block._key} />;
+        } else if (block._type === 'collectionGrid') {
+          return <CollectionGrid block={block} key={block._key} />;
         }
       })}
     </>

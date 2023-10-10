@@ -1,7 +1,7 @@
 import Image from 'next/image';
 import Balancer from 'react-wrap-balancer';
 import imageUrlBuilder from '@sanity/image-url';
-import { client } from '../../sanity/lib/client';
+import { client } from '@/lib/sanity/client';
 
 interface IHeroProps {
   block: {
@@ -19,7 +19,7 @@ export default function Hero({
   const imageBuilder = imageUrlBuilder(client);
 
   return (
-    <section className='w-full pt-12 md:pt-24 lg:pt-32'>
+    <section className='w-full px-12'>
       <div className='md:container md:space-y-10 xl:space-y-16'>
         <div className='relative max-w-[1200px] mx-auto'>
           <Image

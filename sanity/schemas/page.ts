@@ -25,6 +25,14 @@ export default defineType({
           name: 'hero',
           type: 'hero',
         }),
+        defineArrayMember({
+          name: 'collectionGrid',
+          type: 'collectionGrid',
+        }),
+        defineArrayMember({
+          name: 'blogGrid',
+          type: 'blogGrid',
+        }),
       ],
     }),
   ],

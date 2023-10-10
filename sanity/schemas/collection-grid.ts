@@ -2,34 +2,14 @@ import { defineField, defineType } from 'sanity';
 import { DocumentTextIcon } from '@sanity/icons';
 
 export default defineType({
-  name: 'hero',
+  name: 'collectionGrid',
   type: 'object',
-  title: 'Hero',
+  title: 'Collection Grid',
   fields: [
     defineField({
-      name: 'heading',
+      name: 'collection',
+      title: 'Collection (Collection ID)',
       type: 'string',
-    }),
-    defineField({
-      name: 'tagline',
-      type: 'string',
-    }),
-    defineField({
-      name: 'cta',
-      title: 'Call to Action (Collection ID)',
-      type: 'string',
-    }),
-    defineField({
-      name: 'image',
-      type: 'image',
-      options: { hotspot: true },
-      fields: [
-        defineField({
-          name: 'alt',
-          type: 'string',
-          title: 'Alternative text',
-        }),
-      ],
     }),
   ],
   icon: DocumentTextIcon,

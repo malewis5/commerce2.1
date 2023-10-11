@@ -107,13 +107,8 @@ export default async function ProductPage({
         <Suspense>
           <RelatedProducts id={product.id} />
         </Suspense>
-        <Suspense>
-          <RecentlyViewed />
-        </Suspense>
+        <RecentlyViewed />
       </div>
-      <Suspense>
-        <Footer />
-      </Suspense>
     </>
   );
 }

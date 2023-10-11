@@ -4,10 +4,10 @@ import { postsQuery } from '../../lib/sanity/queries';
 import Link from 'next/link';
 import { PortableText } from '@portabletext/react';
 import { components } from '@/components/portable-text';
-import Image from 'next/image';
 import PostCard from '@/components/PostCard';
 import { Post } from '../../lib/sanity/schemas/post';
 import { PortableTextBlock } from 'sanity';
+import SanityImage from '@/components/SanityImage';
 
 const getHeadline = (post: Post) => {
   if (!post.body) return null;
@@ -42,12 +42,11 @@ export default async function Page() {
         <h2 className='text-2xl font-bold mb-4'>{headlinePost.title}</h2>
         <div className='grid grid-cols-1 md:grid-cols-2 gap-6'>
           <div>
-            <Image
-              alt='Top Story Image'
+            <SanityImage
               className='w-full h-72 object-cover object-center rounded-lg'
-              height='400'
-              src='https://picsum.photos/600/400'
-              width='600'
+              height={400}
+              image={headlinePost.mainImage}
+              width={600}
             />
           </div>
           <div className='flex flex-col justify-center'>

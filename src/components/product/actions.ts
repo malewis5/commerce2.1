@@ -21,7 +21,7 @@ export const viewItem = async (
     if (score === null) {
       const setSize = await kv.zcard(anonId);
 
-      if (setSize >= 5) {
+      if (setSize > 5) {
         await kv.zpopmin(anonId, 1);
       }
     }

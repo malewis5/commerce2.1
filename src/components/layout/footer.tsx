@@ -1,6 +1,6 @@
 const { COMPANY_NAME, SITE_NAME } = process.env;
 
-export default async function Footer() {
+export default function Footer() {
   const currentYear = new Date().getFullYear();
   const copyrightDate = 2023 + (currentYear > 2023 ? `-${currentYear}` : '');
   const copyrightName = COMPANY_NAME || SITE_NAME || '';

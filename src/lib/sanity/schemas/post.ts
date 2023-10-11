@@ -13,7 +13,7 @@ export interface Post {
     current?: string;
   };
   author?: Reference;
-  mainImage?: {
+  mainImage: {
     _type: 'image';
     alt?: string;
   };

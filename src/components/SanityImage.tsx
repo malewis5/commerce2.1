@@ -17,7 +17,6 @@ export default function SanityImage({
   fill?: boolean;
   className?: string;
 }) {
-  console.log(image);
   let imageUrl;
 
   if (width && height && !fill) {

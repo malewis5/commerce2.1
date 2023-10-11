@@ -11,6 +11,9 @@ import { Image } from '@/lib/shopify/types';
 import Link from 'next/link';
 import Footer from '@/components/layout/footer';
 
+import { RecentlyViewed } from '@/components/product/recently-viewed';
+import { viewItem } from '@/components/product/actions';
+
 export const runtime = 'edge';
 
 export async function generateMetadata({
@@ -57,6 +60,7 @@ export default async function ProductPage({
   params: { handle: string };
 }) {
   const product = await getProduct(params.handle);
+  await viewItem(params.handle);
 
   if (!product) return notFound();
 
@@ -102,6 +106,9 @@ export default async function ProductPage({
         </div>
         <Suspense>
           <RelatedProducts id={product.id} />
+        </Suspense>
+        <Suspense>
+          <RecentlyViewed />
         </Suspense>
       </div>
       <Suspense>

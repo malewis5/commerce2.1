@@ -379,13 +379,17 @@ export async function getMenu(handle: string): Promise<Menu[]> {
   );
 }
 
-export async function getProduct(handle: string): Promise<Product | undefined> {
+export async function getProduct(
+  handle: string,
+  cache?: RequestCache
+): Promise<Product | undefined> {
   const res = await shopifyFetch<ShopifyProductOperation>({
     query: getProductQuery,
     tags: [TAGS.products],
     variables: {
       handle,
     },
+    cache: cache,
   });
 
   return reshapeProduct(res.body.data.product, false);

@@ -7,8 +7,14 @@ import { Gallery } from './gallery';
 import { ProductDescription } from './product-description';
 import { Image } from '@/lib/shopify/types';
 import { Skeleton } from '../ui/skeleton';
+import { TAGS } from '@/lib/constants';
 
-const fetcher = (url: string) => fetch(url).then((r) => r.json());
+const fetcher = (url: string) =>
+  fetch(url, {
+    next: {
+      tags: [TAGS.products],
+    },
+  }).then((r) => r.json());
 
 export function Modal({ handle }: { handle: string }) {
   const router = useRouter();

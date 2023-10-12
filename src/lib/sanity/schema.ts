@@ -7,6 +7,7 @@ import page from './schemas/page';
 import hero from './schemas/hero';
 import collectionGrid from './schemas/collection-grid';
 import blogGrid from './schemas/blog-grid';
+import navigation from './schemas/navigation';
 
 export const schema: { types: SchemaTypeDefinition[] } = {
   types: [
@@ -18,5 +19,6 @@ export const schema: { types: SchemaTypeDefinition[] } = {
     hero,
     collectionGrid,
     blogGrid,
+    navigation,
   ],
 };

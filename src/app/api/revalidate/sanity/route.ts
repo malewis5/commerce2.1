@@ -11,13 +11,14 @@ export async function POST(request: Request) {
 
   const isBlogPageUpdate = topic === 'post';
   const isPageUpdate = topic === 'page';
+  const isNavigationUpdate = topic === 'navigation';
 
   if (!isValidSignature(JSON.stringify(body), signature, secret)) {
     console.error('Invalid sanity webhook secret');
     return NextResponse.json({ status: 200 });
   }
 
-  if (!isBlogPageUpdate && !isPageUpdate) {
+  if (!isBlogPageUpdate && !isPageUpdate && !isNavigationUpdate) {
     return NextResponse.json({ status: 200 });
   }
 
@@ -37,6 +38,18 @@ export async function POST(request: Request) {
   }
 
   if (isPageUpdate) {
+    console.log(
+      `Received webhook for ${topic} with body: ${JSON.stringify(body)}`
+    );
+
+    const slug = body.slug.current;
+    const tag = `${slug}`;
+
+    console.log(`Revalidating tag: ${tag}`);
+    revalidateTag(tag);
+  }
+
+  if (isNavigationUpdate) {
     console.log(
       `Received webhook for ${topic} with body: ${JSON.stringify(body)}`
     );

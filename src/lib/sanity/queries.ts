@@ -28,3 +28,11 @@ export const pageQuery = groq`*[_type == "page" && slug.current == $slug][0]{
       },
     }
 }`;
+
+// Get Navigation Menu
+export const navigationQuery = groq`*[_type == "navigation" && tag == $tag][0]{
+  navItems[]{
+    title,
+    slug
+  }
+}`;

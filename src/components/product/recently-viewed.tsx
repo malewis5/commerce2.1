@@ -34,10 +34,11 @@ export async function RecentlyViewed() {
     }
   }
 
+  if (products.length === 0) return null;
+
   return (
     <div className='py-8'>
       <h2 className='mb-4 text-2xl font-bold'>Recently Viewed</h2>
-
       <ul className='flex w-full gap-4 overflow-x-auto pt-1'>
         <Suspense fallback={<RecentlyViewedSkeleton />}>
           {products.map(

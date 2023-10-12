@@ -3,7 +3,13 @@ import React from 'react';
 import { IPost } from '../lib/sanity/schemas/documents/post';
 import SanityImage from './sanity-image';
 
-export default function BlogCard({ post }: { post: IPost }) {
+export default function BlogCard({
+  post,
+  priority = false,
+}: {
+  post: IPost;
+  priority?: boolean;
+}) {
   const date = new Date(post.publishedAt);
   const formattedDate = date.toLocaleDateString();
 
@@ -19,6 +25,7 @@ export default function BlogCard({ post }: { post: IPost }) {
           height={400}
           image={post.mainImage}
           width={600}
+          priority={priority}
         />
         <div className='p-2'>
           <h3 className='text-xl font-bold mb-2 mt-2'>{post.title}</h3>

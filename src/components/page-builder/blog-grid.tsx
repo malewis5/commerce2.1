@@ -24,7 +24,13 @@ export function BlogGrid({ block }: { block: IBlogGrid }) {
         ) : (
           <>
             {block.blogs?.map((blog: IPost) => {
-              return <PostCard key={blog._id} post={blog} />;
+              return (
+                <PostCard
+                  key={blog._id}
+                  post={blog}
+                  priority={block?.priority}
+                />
+              );
             })}
           </>
         )}

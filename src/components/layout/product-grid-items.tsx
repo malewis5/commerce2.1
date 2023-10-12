@@ -7,9 +7,11 @@ import QuickView from '../product/quick-view';
 export default function ProductGridItems({
   products,
   showQuickView = false,
+  priority = false,
 }: {
   products: Product[];
   showQuickView?: boolean;
+  priority?: boolean;
 }) {
   return (
     <>
@@ -31,6 +33,7 @@ export default function ProductGridItems({
               }}
               src={product.featuredImage?.url}
               fill
+              priority={priority}
               sizes='(min-width: 768px) 33vw, (min-width: 640px) 50vw, 100vw'
             />
           </Link>

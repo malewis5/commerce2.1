@@ -6,6 +6,7 @@ export interface ICollectionGrid {
   collection: string;
   title: string;
   slug: string;
+  priority?: boolean;
 }
 
 export default defineType({
@@ -18,6 +19,11 @@ export default defineType({
       title: 'Title',
       type: 'string',
       validation: (Rule) => Rule.required(),
+    }),
+    defineField({
+      name: 'priority',
+      title: 'Priority (Above the Fold)',
+      type: 'boolean',
     }),
     defineField({
       name: 'collection',

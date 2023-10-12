@@ -5,6 +5,7 @@ import { IPost } from '../documents/post';
 export interface IBlogGrid {
   _key: string;
   blogs: IPost[];
+  priority?: boolean;
 }
 
 export default defineType({
@@ -12,6 +13,11 @@ export default defineType({
   type: 'object',
   title: 'Blog Grid',
   fields: [
+    defineField({
+      name: 'priority',
+      title: 'Priority (Above the Fold)',
+      type: 'boolean',
+    }),
     defineField({
       name: 'blogs',
       title: 'Blogs',

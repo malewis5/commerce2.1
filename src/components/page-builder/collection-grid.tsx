@@ -13,6 +13,8 @@ export async function CollectionGrid({ block }: { block: ICollectionGrid }) {
     first: 3,
   });
 
+  console.log(block);
+
   return (
     <section className='mt-8 mb-8 px-4'>
       <Link href={block.slug}>
@@ -25,7 +27,10 @@ export async function CollectionGrid({ block }: { block: ICollectionGrid }) {
           <p className='py-3 text-lg'>No products found in this collection</p>
         ) : (
           <Grid className='grid-cols-1 sm:grid-cols-2 lg:grid-cols-3'>
-            <ProductGridItems products={products} />
+            <ProductGridItems
+              products={products}
+              priority={block?.priority ?? false}
+            />
           </Grid>
         )}
       </div>

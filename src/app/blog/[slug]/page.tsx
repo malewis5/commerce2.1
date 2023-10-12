@@ -6,6 +6,8 @@ import { SanityDocument } from 'next-sanity';
 import { draftMode } from 'next/headers';
 import PreviewPost from '@/components/preview/PreviewPost';
 
+export const runtime = 'edge';
+
 export default async function Page({ params }: { params: any }) {
   const isDraftMode = draftMode().isEnabled;
   const post = await sanityFetch<SanityDocument>({

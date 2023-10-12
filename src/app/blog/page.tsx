@@ -29,6 +29,8 @@ const getPreview = (post: Post) => {
   return firstP;
 };
 
+export const runtime = 'edge';
+
 export default async function Page() {
   const posts = await sanityFetch<Post[]>({
     query: postsQuery,

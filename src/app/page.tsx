@@ -10,6 +10,8 @@ import { IPage } from '@/lib/sanity/schemas/documents/page';
 import { PortableText } from '@portabletext/react';
 import { components } from '@/components/portable-text';
 
+export const runtime = 'edge';
+
 export default async function Page({ params }: { params: { slug: string } }) {
   params.slug = '/';
 

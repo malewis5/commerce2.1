@@ -12,11 +12,11 @@ export default function Hero({
   const showCta = cta && slug && slug.current;
 
   return (
-    <section className='w-full px-12 mb-8'>
-      <div className='md:container md:space-y-10 xl:space-y-16'>
-        <div className='relative max-w-[1200px] mx-auto'>
+    <section className='w-full lg:px-12 mb-8'>
+      <div className='lg:container lg:space-y-10 xl:space-y-16'>
+        <div className='relative w-full lg:max-w-[1200px] lg:mx-auto'>
           <SanityImage
-            className='w-full aspect-[2/1] overflow-hidden object-cover object-center'
+            className='w-full aspect-[2/1] min-h-[200px] overflow-hidden object-cover object-center'
             height={600}
             image={image}
             width={1200}

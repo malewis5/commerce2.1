@@ -23,6 +23,16 @@ export const metadata = {
     default: SITE_NAME!,
     template: `%s | ${SITE_NAME}`,
   },
+  openGraph: {
+    images: [
+      {
+        url: '/default-og.png',
+        width: 1200,
+        height: 630,
+        alt: 'MatTech',
+      },
+    ],
+  },
   robots: {
     follow: true,
     index: true,

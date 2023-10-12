@@ -1,9 +1,11 @@
 import { defineArrayMember, defineField, defineType } from 'sanity';
+import { ISEO } from '../objects/seo';
 
 export interface IPage {
   title: string;
   slug: string;
   pageBuilder: object[];
+  seo: ISEO;
 }
 
 export default defineType({
@@ -45,6 +47,10 @@ export default defineType({
         }),
       ],
       validation: (Rule) => Rule.required(),
+    }),
+    defineField({
+      name: 'seo',
+      type: 'seo',
     }),
   ],
 });

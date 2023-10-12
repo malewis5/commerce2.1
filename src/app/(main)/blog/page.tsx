@@ -29,6 +29,11 @@ const getPreview = (post: IPost) => {
   return firstP;
 };
 
+export const metadata = {
+  title: 'Blog',
+  description: 'Our recent blog posts',
+};
+
 export const runtime = 'edge';
 
 export default async function Page() {

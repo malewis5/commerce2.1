@@ -9,12 +9,20 @@ import collectionGrid from './schemas/objects/collection-grid';
 import blogGrid from './schemas/objects/blog-grid';
 import navigation from './schemas/documents/navigation';
 import blockObject from './schemas/objects/blockObject';
+import seo from './schemas/objects/seo';
 
 // ---------------- Documents ----------------
 const documents = [post, author, category, page, navigation];
 
 // ---------------- Objects ------------------
-const objects = [blockContent, hero, collectionGrid, blogGrid, blockObject];
+const objects = [
+  blockContent,
+  hero,
+  collectionGrid,
+  blogGrid,
+  blockObject,
+  seo,
+];
 
 export const schema: { types: SchemaTypeDefinition[] } = {
   types: [...documents, ...objects],

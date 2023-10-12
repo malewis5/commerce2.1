@@ -1,16 +1,10 @@
 import Post from '@/components/Post';
-import { postPathsQuery, postQuery } from '../../../../sanity/lib/queries';
-import { sanityFetch, token } from '../../../../sanity/lib/sanity-fetch';
+import { postQuery } from '../../../lib/sanity/queries';
+import { sanityFetch, token } from '../../../lib/sanity/sanity-fetch';
 import PreviewProvider from '@/components/preview/PreviewProvider';
 import { SanityDocument } from 'next-sanity';
 import { draftMode } from 'next/headers';
-import PreviewPost from '@/components/PreviewPost';
-import { client } from '../../../../sanity/lib/client';
-
-export async function generateStaticParams() {
-  const posts = await client.fetch(postPathsQuery);
-  return posts;
-}
+import PreviewPost from '@/components/preview/PreviewPost';
 
 export default async function Page({ params }: { params: any }) {
   const isDraftMode = draftMode().isEnabled;

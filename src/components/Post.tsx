@@ -1,7 +1,7 @@
-import Image from 'next/image';
 import { SanityDocument } from '@sanity/client';
 import { PortableText } from '@portabletext/react';
 import { components } from './portable-text';
+import SanityImage from './SanityImage';
 
 export default function Post({ post }: { post: SanityDocument }) {
   return (
@@ -15,9 +15,7 @@ export default function Post({ post }: { post: SanityDocument }) {
             {post?.author?.name ?? process.env.STORE_NAME}
           </p>
           <div className='relative z-0 max-w-screen-lg mx-auto overflow-hidden lg:rounded-lg aspect-video mb-4'>
-            {post?.mainImage && (
-              <Image src='https://picsum.photos/1920/1080' fill alt='test' />
-            )}
+            <SanityImage priority={true} image={post.mainImage} fill={true} />
           </div>
           <div className='mx-auto my-3 prose prose-base dark:prose-invert prose-a:text-blue-500'>
             {post.body && (

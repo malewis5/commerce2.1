@@ -16,14 +16,14 @@ export default function PreviewProvider({
   token: string;
 }) {
   const { client } = suspend(
-    () => import('../../../sanity/lib/client'),
+    () => import('../../lib/sanity/client'),
     [UniqueKey]
   );
   if (!token) {
     throw new TypeError('Missing token');
   }
   return (
-    <LiveQueryProvider client={client} token={token}>
+    <LiveQueryProvider client={client} token={token} logger={console}>
       {children}
     </LiveQueryProvider>
   );

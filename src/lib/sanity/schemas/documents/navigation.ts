@@ -1,5 +1,15 @@
 import { defineField, defineType } from 'sanity';
 
+export interface INavigation {
+  _key: string;
+  title: string;
+  navItems: {
+    title: string;
+    slug: string;
+  }[];
+  tag: string;
+}
+
 export default defineType({
   name: 'navigation',
   title: 'Navigation',
@@ -9,11 +19,13 @@ export default defineType({
       name: 'title',
       title: 'Title',
       type: 'string',
+      validation: (Rule) => Rule.required(),
     }),
     defineField({
       name: 'navItems',
       title: 'Navigation Items',
       type: 'array',
+      validation: (Rule) => Rule.required(),
       of: [
         {
           type: 'object',
@@ -22,11 +34,13 @@ export default defineType({
               name: 'title',
               title: 'Title',
               type: 'string',
+              validation: (Rule) => Rule.required(),
             },
             {
               name: 'slug',
               title: 'Slug',
               type: 'string',
+              validation: (Rule) => Rule.required(),
             },
           ],
         },
@@ -36,6 +50,7 @@ export default defineType({
       name: 'tag',
       title: 'Tag',
       type: 'string',
+      validation: (Rule) => Rule.required(),
     }),
   ],
 });

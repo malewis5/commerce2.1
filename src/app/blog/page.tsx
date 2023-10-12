@@ -5,7 +5,7 @@ import Link from 'next/link';
 import { PortableText } from '@portabletext/react';
 import { components } from '@/components/portable-text';
 import PostCard from '@/components/PostCard';
-import { Post } from '../../lib/sanity/schemas/post';
+import { Post } from '../../lib/sanity/schemas/documents/post';
 import { PortableTextBlock } from 'sanity';
 import SanityImage from '@/components/SanityImage';
 

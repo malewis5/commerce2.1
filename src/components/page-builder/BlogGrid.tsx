@@ -1,17 +1,11 @@
-import { Post } from '@/lib/sanity/schemas/post';
+import { Post } from '@/lib/sanity/schemas/documents/post';
 import React from 'react';
 import PostCard from '../PostCard';
 import Link from 'next/link';
 import { Button } from '../ui/button';
+import { IBlogGrid } from '@/lib/sanity/schemas/objects/blog-grid';
 
-export default function BlogGrid({
-  block,
-}: {
-  block: {
-    _key: string;
-    blogs?: Post[];
-  };
-}) {
+export default function BlogGrid({ block }: { block: IBlogGrid }) {
   return (
     <section className='mt-8 mb-8 px-4'>
       <Link href='/blog'>

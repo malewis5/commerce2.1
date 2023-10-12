@@ -1,5 +1,11 @@
 import { defineField, defineType } from 'sanity';
 import { DocumentTextIcon } from '@sanity/icons';
+import { Post } from '../documents/post';
+
+export interface IBlogGrid {
+  _key: string;
+  blogs: Post[];
+}
 
 export default defineType({
   name: 'blogGrid',

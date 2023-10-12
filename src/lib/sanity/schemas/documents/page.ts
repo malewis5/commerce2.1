@@ -1,5 +1,11 @@
 import { defineArrayMember, defineField, defineType } from 'sanity';
 
+export interface IPage {
+  title: string;
+  slug: string;
+  pageBuilder: object[];
+}
+
 export default defineType({
   name: 'page',
   type: 'document',
@@ -33,7 +39,12 @@ export default defineType({
           name: 'blogGrid',
           type: 'blogGrid',
         }),
+        defineArrayMember({
+          name: 'textBlock',
+          type: 'blockObject',
+        }),
       ],
+      validation: (Rule) => Rule.required(),
     }),
   ],
 });

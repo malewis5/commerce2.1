@@ -1,24 +1,21 @@
 import { type SchemaTypeDefinition } from 'sanity';
-import post from './schemas/post';
-import author from './schemas/author';
-import blockContent from './schemas/blockContent';
-import category from './schemas/category';
-import page from './schemas/page';
-import hero from './schemas/hero';
-import collectionGrid from './schemas/collection-grid';
-import blogGrid from './schemas/blog-grid';
-import navigation from './schemas/navigation';
+import post from './schemas/documents/post';
+import author from './schemas/documents/author';
+import blockContent from './schemas/objects/blockContent';
+import category from './schemas/documents/category';
+import page from './schemas/documents/page';
+import hero from './schemas/objects/hero';
+import collectionGrid from './schemas/objects/collection-grid';
+import blogGrid from './schemas/objects/blog-grid';
+import navigation from './schemas/documents/navigation';
+import blockObject from './schemas/objects/blockObject';
+
+// ---------------- Documents ----------------
+const documents = [post, author, category, page, navigation];
+
+// ---------------- Objects ------------------
+const objects = [blockContent, hero, collectionGrid, blogGrid, blockObject];
 
 export const schema: { types: SchemaTypeDefinition[] } = {
-  types: [
-    post,
-    author,
-    blockContent,
-    category,
-    page,
-    hero,
-    collectionGrid,
-    blogGrid,
-    navigation,
-  ],
+  types: [...documents, ...objects],
 };

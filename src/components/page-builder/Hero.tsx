@@ -1,21 +1,14 @@
 import Balancer from 'react-wrap-balancer';
 import SanityImage from '../SanityImage';
-
-interface IHeroProps {
-  block: {
-    _type: 'hero';
-    tagline: string;
-    _key: string;
-    image: [Object];
-    heading: string;
-  };
-}
+import { IHero } from '@/lib/sanity/schemas/objects/hero';
 
 export default function Hero({
   block: { tagline, image, heading },
-}: IHeroProps) {
+}: {
+  block: IHero;
+}) {
   return (
-    <section className='w-full px-12'>
+    <section className='w-full px-12 mb-8'>
       <div className='md:container md:space-y-10 xl:space-y-16'>
         <div className='relative max-w-[1200px] mx-auto'>
           <SanityImage

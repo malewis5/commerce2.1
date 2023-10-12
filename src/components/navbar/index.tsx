@@ -9,14 +9,13 @@ import { SanityDocument } from 'next-sanity';
 import { navigationQuery } from '@/lib/sanity/queries';
 import { Skeleton } from '@/components/ui/skeleton';
 import { MenuIcon } from 'lucide-react';
+import { INavigation } from '@/lib/sanity/schemas/documents/navigation';
 
 export async function Navbar() {
-  const { navItems } = await sanityFetch<
-    SanityDocument<{ navItems?: { title: string; slug: string }[] }>
-  >({
+  const { navItems } = await sanityFetch<SanityDocument<INavigation>>({
     query: navigationQuery,
     params: { tag: 'main' },
-    tags: ['navigation'],
+    tags: ['main'],
   });
 
   return (

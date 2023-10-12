@@ -1,6 +1,6 @@
 import Link from 'next/link';
 import React from 'react';
-import { Post } from '../lib/sanity/schemas/post';
+import { Post } from '../lib/sanity/schemas/documents/post';
 import SanityImage from './SanityImage';
 
 export default function PostCard({ post }: { post: Post }) {

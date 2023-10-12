@@ -1,4 +1,4 @@
-import { Post } from '@/lib/sanity/schemas/documents/post';
+import { IPost } from '@/lib/sanity/schemas/documents/post';
 import React from 'react';
 import PostCard from '../blog-card';
 import Link from 'next/link';
@@ -23,7 +23,7 @@ export function BlogGrid({ block }: { block: IBlogGrid }) {
           </p>
         ) : (
           <>
-            {block.blogs?.map((blog: Post) => {
+            {block.blogs?.map((blog: IPost) => {
               return <PostCard key={blog._id} post={blog} />;
             })}
           </>

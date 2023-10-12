@@ -1,5 +1,22 @@
 import { defineField, defineType } from 'sanity';
 
+export interface IAuthor {
+  _type: 'author';
+  _id: string;
+  _rev?: string;
+  _createdAt?: string;
+  _updatedAt?: string;
+  name: string;
+  slug: {
+    current?: string;
+  };
+  image?: {
+    _type: 'image';
+    alt?: string;
+  };
+  bio?: any;
+}
+
 export default defineType({
   name: 'author',
   title: 'Author',

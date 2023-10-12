@@ -1,8 +1,9 @@
 import { defineField, defineType } from 'sanity';
 
 import { Reference } from '@sanity/types';
+import { IAuthor } from './author';
 
-export interface Post {
+export interface IPost {
   _type: 'post';
   _id: string;
   _rev?: string;
@@ -12,7 +13,7 @@ export interface Post {
   slug: {
     current?: string;
   };
-  author?: Reference;
+  author?: IAuthor;
   mainImage: {
     _type: 'image';
     alt?: string;

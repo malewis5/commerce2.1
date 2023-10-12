@@ -5,11 +5,11 @@ import Link from 'next/link';
 import { PortableText } from '@portabletext/react';
 import { components } from '@/components/portable-text';
 import PostCard from '@/components/blog-card';
-import { Post } from '../../../lib/sanity/schemas/documents/post';
+import { IPost } from '../../../lib/sanity/schemas/documents/post';
 import { PortableTextBlock } from 'sanity';
 import SanityImage from '@/components/sanity-image';
 
-const getHeadline = (post: Post) => {
+const getHeadline = (post: IPost) => {
   if (!post.body) return null;
 
   const firstH1 = post.body.find(
@@ -19,7 +19,7 @@ const getHeadline = (post: Post) => {
   return firstH1;
 };
 
-const getPreview = (post: Post) => {
+const getPreview = (post: IPost) => {
   if (!post.body) return null;
 
   const firstP = post.body.find(
@@ -32,7 +32,7 @@ const getPreview = (post: Post) => {
 export const runtime = 'edge';
 
 export default async function Page() {
-  const posts = await sanityFetch<Post[]>({
+  const posts = await sanityFetch<IPost[]>({
     query: postsQuery,
   });
 

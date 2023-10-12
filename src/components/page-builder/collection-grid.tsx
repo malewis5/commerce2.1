@@ -13,8 +13,6 @@ export async function CollectionGrid({ block }: { block: ICollectionGrid }) {
     first: 3,
   });
 
-  console.log(block);
-
   return (
     <section className='mt-8 mb-8 px-4'>
       <Link href={block.slug}>

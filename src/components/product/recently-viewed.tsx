@@ -3,21 +3,6 @@ import { Product } from '@/lib/shopify/types';
 import Link from 'next/link';
 import { GridTileImage } from '../grid/tile';
 import { getViewedItems } from './actions';
-import { Suspense } from 'react';
-import { Skeleton } from '../ui/skeleton';
-
-export const RecentlyViewedSkeleton = () => {
-  const items = Array.from({ length: 5 }, (_, i) => i);
-
-  return items.map((i) => (
-    <li
-      key={i}
-      className='aspect-square w-full flex-none min-[475px]:w-1/2 sm:w-1/3 md:w-1/4 lg:w-1/5'
-    >
-      <Skeleton className='relative h-full w-full bg-gray-100 animate-pulse' />
-    </li>
-  ));
-};
 
 export async function RecentlyViewed() {
   const productHandles = await getViewedItems();
@@ -37,7 +22,7 @@ export async function RecentlyViewed() {
   if (products.length === 0) return null;
 
   return (
-    <div className='py-8'>
+    <div className='my-8'>
       <h2 className='mb-4 text-2xl font-bold'>Recently Viewed</h2>
       <ul className='flex w-full gap-4 overflow-x-auto pt-1'>
         {products.map(

@@ -4,7 +4,10 @@ import { DocumentTextIcon } from '@sanity/icons';
 export interface IHero {
   _key: string;
   heading: string;
-  tagline?: string;
+  cta?: string;
+  slug?: {
+    current: string;
+  };
   image: {
     alt: string;
     asset: {
@@ -25,8 +28,13 @@ export default defineType({
       validation: (Rule) => Rule.required(),
     }),
     defineField({
-      name: 'tagline',
+      title: 'Call to Action',
+      name: 'cta',
       type: 'string',
+    }),
+    defineField({
+      name: 'slug',
+      type: 'slug',
     }),
     defineField({
       name: 'image',

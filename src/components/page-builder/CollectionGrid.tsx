@@ -19,9 +19,11 @@ export default async function CollectionGrid({
 
   return (
     <section className='mt-8 mb-8 px-4'>
-      <h1 className='scroll-m-20 text-4xl font-extrabold tracking-tight lg:text-5xl mb-4'>
-        {block.title}
-      </h1>
+      <Link href={block.slug}>
+        <h1 className='scroll-m-20 text-4xl font-extrabold tracking-tight lg:text-5xl mb-4'>
+          {block.title}
+        </h1>
+      </Link>
 
       {products.length === 0 ? (
         <p className='py-3 text-lg'>{`No products found in this collection`}</p>
@@ -32,7 +34,7 @@ export default async function CollectionGrid({
       )}
       <div className='w-full flex items-center justify-center'>
         <Button asChild>
-          <Link href={`/search/${block.collection}`}>View Collection</Link>
+          <Link href={block.slug}>View Collection</Link>
         </Button>
       </div>
     </section>

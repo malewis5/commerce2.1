@@ -5,6 +5,7 @@ export interface ICollectionGrid {
   _key: string;
   collection: string;
   title: string;
+  slug: string;
 }
 
 export default defineType({
@@ -24,18 +25,24 @@ export default defineType({
       type: 'string',
       validation: (Rule) => Rule.required(),
     }),
+    defineField({
+      name: 'slug',
+      title: 'Slug',
+      type: 'string',
+      validation: (Rule) => Rule.required(),
+    }),
   ],
   icon: DocumentTextIcon,
   preview: {
     select: {
-      title: 'heading',
-      image: 'image',
+      title: 'title',
+      subtitle: 'collection',
     },
-    prepare({ title, image }) {
+    prepare({ title, subtitle }) {
       return {
         title: title || 'Untitled',
-        subtitle: 'Hero',
-        media: image || DocumentTextIcon,
+        subtitle: subtitle || '',
+        media: DocumentTextIcon,
       };
     },
   },

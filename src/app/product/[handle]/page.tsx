@@ -9,12 +9,8 @@ import { HIDDEN_PRODUCT_TAG } from '@/lib/constants';
 import { getProduct, getProductRecommendations } from '@/lib/shopify';
 import { Image } from '@/lib/shopify/types';
 import Link from 'next/link';
-import Footer from '@/components/layout/footer';
 
-import {
-  RecentlyViewed,
-  RecentlyViewedSkeleton,
-} from '@/components/product/recently-viewed';
+import { RecentlyViewed } from '@/components/product/recently-viewed';
 import { viewItem } from '@/components/product/actions';
 
 export const runtime = 'edge';
@@ -107,11 +103,11 @@ export default async function ProductPage({
             <ProductDescription product={product} />
           </div>
         </div>
-        <Suspense fallback={<RecentlyViewedSkeleton />}>
-          <RecentlyViewed />
-        </Suspense>
         <Suspense>
           <RelatedProducts id={product.id} />
+        </Suspense>
+        <Suspense>
+          <RecentlyViewed />
         </Suspense>
       </div>
     </>
@@ -124,7 +120,7 @@ async function RelatedProducts({ id }: { id: string }) {
   if (!relatedProducts.length) return null;
 
   return (
-    <div className='py-8'>
+    <div className='my-8'>
       <h2 className='mb-4 text-2xl font-bold'>Related Products</h2>
       <ul className='flex w-full gap-4 overflow-x-auto pt-1'>
         {relatedProducts.map((product) => (

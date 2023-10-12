@@ -15,6 +15,7 @@ export default async function Page({ params }: { params: { slug: string } }) {
     query: pageQuery,
     params,
     tags: [params.slug],
+    revalidate: 3600,
   });
 
   if (!page) {

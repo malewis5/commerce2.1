@@ -11,7 +11,10 @@ import { Image } from '@/lib/shopify/types';
 import Link from 'next/link';
 import Footer from '@/components/layout/footer';
 
-import { RecentlyViewed } from '@/components/product/recently-viewed';
+import {
+  RecentlyViewed,
+  RecentlyViewedSkeleton,
+} from '@/components/product/recently-viewed';
 import { viewItem } from '@/components/product/actions';
 
 export const runtime = 'edge';
@@ -104,10 +107,12 @@ export default async function ProductPage({
             <ProductDescription product={product} />
           </div>
         </div>
+        <Suspense fallback={<RecentlyViewedSkeleton />}>
+          <RecentlyViewed />
+        </Suspense>
         <Suspense>
           <RelatedProducts id={product.id} />
         </Suspense>
-        <RecentlyViewed />
       </div>
     </>
   );

@@ -20,14 +20,15 @@ export async function CollectionGrid({ block }: { block: ICollectionGrid }) {
           {block.title}
         </h1>
       </Link>
-
-      {products.length === 0 ? (
-        <p className='py-3 text-lg'>{`No products found in this collection`}</p>
-      ) : (
-        <Grid className='grid-cols-1 sm:grid-cols-2 lg:grid-cols-3'>
-          <ProductGridItems products={products} />
-        </Grid>
-      )}
+      <div className='mb-4'>
+        {products.length === 0 ? (
+          <p className='py-3 text-lg'>{`No products found in this collection`}</p>
+        ) : (
+          <Grid className='grid-cols-1 sm:grid-cols-2 lg:grid-cols-3'>
+            <ProductGridItems products={products} />
+          </Grid>
+        )}
+      </div>
       <div className='w-full flex items-center justify-center'>
         <Button asChild>
           <Link href={block.slug}>View Collection</Link>

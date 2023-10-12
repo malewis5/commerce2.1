@@ -6,7 +6,6 @@ export default function Page({
 }: {
   searchParams: { qv: string; handle: string };
 }) {
-  console.log(searchParams);
   if (!searchParams.handle || !searchParams.qv) return null;
 
   return <Modal handle={searchParams.handle} />;

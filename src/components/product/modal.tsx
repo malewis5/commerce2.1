@@ -7,7 +7,6 @@ import { Gallery } from './gallery';
 import { ProductDescription } from './product-description';
 import { Image } from '@/lib/shopify/types';
 import { Skeleton } from '../ui/skeleton';
-import { Button } from '../ui/button';
 
 const fetcher = (url: string) => fetch(url).then((r) => r.json());
 

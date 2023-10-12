@@ -1,11 +1,11 @@
 import React from 'react';
-import { sanityFetch } from '../../lib/sanity/sanity-fetch';
-import { postsQuery } from '../../lib/sanity/queries';
+import { sanityFetch } from '../../../lib/sanity/sanity-fetch';
+import { postsQuery } from '../../../lib/sanity/queries';
 import Link from 'next/link';
 import { PortableText } from '@portabletext/react';
 import { components } from '@/components/portable-text';
 import PostCard from '@/components/blog-card';
-import { Post } from '../../lib/sanity/schemas/documents/post';
+import { Post } from '../../../lib/sanity/schemas/documents/post';
 import { PortableTextBlock } from 'sanity';
 import SanityImage from '@/components/sanity-image';
 

@@ -1,6 +1,6 @@
 'use server';
 
-import { getAnonId } from '@/app/actions';
+import { getAnonId } from '@/app/(main)/actions';
 import { kv } from '@vercel/kv';
 import { cookies } from 'next/headers';
 

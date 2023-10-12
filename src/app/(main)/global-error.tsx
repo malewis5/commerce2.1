@@ -3,6 +3,7 @@
 import { Button } from '@/components/ui/button';
 import { XCircle } from 'lucide-react';
 import { useEffect } from 'react';
+import { log } from '@logtail/next';
 
 export default function Error({
   error,
@@ -12,7 +13,7 @@ export default function Error({
   reset: () => void;
 }) {
   useEffect(() => {
-    console.log(error);
+    log.error(error);
   }, [error]);
 
   return (

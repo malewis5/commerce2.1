@@ -1,13 +1,14 @@
 'use client';
 
 import { Button } from '@/components/ui/button';
+import { log } from '@logtail/next';
 import { XCircle } from 'lucide-react';
 import { useRouter } from 'next/navigation';
 import { useEffect } from 'react';
 
 export default function Error({ error }: { error: any }) {
   useEffect(() => {
-    console.log(error);
+    log.error(error);
   }, [error]);
 
   const router = useRouter();

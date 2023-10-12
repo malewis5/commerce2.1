@@ -33,7 +33,9 @@ export async function Navbar() {
           </Link>
         </div>
         <div className='flex w-full md:w-1/3'>
-          <Search />
+          <Suspense>
+            <Search />
+          </Suspense>
         </div>
         <div className='flex w-full md:w-1/3 justify-end'>
           <div className='hidden lg:flex space-x-5 xl:space-x-10 items-center'>

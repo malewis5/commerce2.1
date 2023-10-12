@@ -11,7 +11,7 @@ import {
   SheetTitle,
   SheetClose,
 } from '@/components/ui/sheet';
-import { useEffect, useRef, useState } from 'react';
+import { Suspense, useEffect, useRef, useState } from 'react';
 import { useSearchParams } from 'next/navigation';
 
 export default function MobileSheet({
@@ -40,7 +40,9 @@ export default function MobileSheet({
           <SheetTitle className='w-full items-center justify-start text-start text-2xl'>
             Navigation
           </SheetTitle>
-          <Search />
+          <Suspense>
+            <Search />
+          </Suspense>
           {navItems &&
             navItems.map((item) => {
               return (

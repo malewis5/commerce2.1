@@ -11,7 +11,9 @@ export default function MobileMenu({
 }) {
   return (
     <div className='flex w-full lg:hidden items-center'>
-      <MobileSheet navItems={navItems} />
+      <Suspense>
+        <MobileSheet navItems={navItems} />
+      </Suspense>
       <div className='flex flex-grow justify-center'>
         <Link
           className='text-gray-800 dark:text-white text-2xl font-bold md:text-3xl hover:text-gray-700 dark:hover:text-gray-300'

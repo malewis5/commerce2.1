@@ -4,10 +4,10 @@ import { postsQuery } from '../../lib/sanity/queries';
 import Link from 'next/link';
 import { PortableText } from '@portabletext/react';
 import { components } from '@/components/portable-text';
-import PostCard from '@/components/PostCard';
+import PostCard from '@/components/blog-card';
 import { Post } from '../../lib/sanity/schemas/documents/post';
 import { PortableTextBlock } from 'sanity';
-import SanityImage from '@/components/SanityImage';
+import SanityImage from '@/components/sanity-image';
 
 const getHeadline = (post: Post) => {
   if (!post.body) return null;

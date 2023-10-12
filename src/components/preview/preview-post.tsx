@@ -4,7 +4,7 @@ import { useParams } from 'next/navigation';
 import type { SanityDocument } from '@sanity/client';
 import { useLiveQuery } from '@sanity/preview-kit';
 import { postQuery } from '../../lib/sanity/queries';
-import Post from '@/components/Post';
+import Post from '@/components/blog-post';
 
 export default function PreviewPost({ post }: { post: SanityDocument }) {
   const params = useParams();

@@ -1,11 +1,11 @@
-import BlogGrid from './BlogGrid';
-import CollectionGrid from './CollectionGrid';
-import Hero from './Hero';
+import { BlogGrid } from './blog-grid';
+import { CollectionGrid } from './collection-grid';
+import { HeroImage } from './hero-image';
 import { IPage } from '@/lib/sanity/schemas/documents/page';
-import TextBlock from './TextBlock';
+import { TextBlock } from './text-block';
 
 const componentMap: Record<string, React.ComponentType<any>> = {
-  hero: Hero,
+  hero: HeroImage,
   blogGrid: BlogGrid,
   collectionGrid: CollectionGrid,
   textBlock: TextBlock,

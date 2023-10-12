@@ -1,10 +1,10 @@
 import Balancer from 'react-wrap-balancer';
-import SanityImage from '../SanityImage';
+import SanityImage from '../sanity-image';
 import { IHero } from '@/lib/sanity/schemas/objects/hero';
 import Link from 'next/link';
 import { Button } from '../ui/button';
 
-export default function Hero({
+export function HeroImage({
   block: { cta, slug, image, heading },
 }: {
   block: IHero;

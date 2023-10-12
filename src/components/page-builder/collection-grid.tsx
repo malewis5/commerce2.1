@@ -1,4 +1,4 @@
-import { getCollection, getCollectionProducts } from '@/lib/shopify';
+import { getCollectionProducts } from '@/lib/shopify';
 
 import React from 'react';
 import ProductGridItems from '../layout/product-grid-items';
@@ -7,11 +7,7 @@ import { Button } from '../ui/button';
 import Link from 'next/link';
 import { ICollectionGrid } from '@/lib/sanity/schemas/objects/collection-grid';
 
-export default async function CollectionGrid({
-  block,
-}: {
-  block: ICollectionGrid;
-}) {
+export async function CollectionGrid({ block }: { block: ICollectionGrid }) {
   const products = await getCollectionProducts({
     collection: block.collection,
     first: 3,

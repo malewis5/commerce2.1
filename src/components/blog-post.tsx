@@ -1,9 +1,9 @@
 import { SanityDocument } from '@sanity/client';
 import { PortableText } from '@portabletext/react';
 import { components } from './portable-text';
-import SanityImage from './SanityImage';
+import SanityImage from './sanity-image';
 
-export default function Post({ post }: { post: SanityDocument }) {
+export default function BlogPost({ post }: { post: SanityDocument }) {
   return (
     <>
       {post && (

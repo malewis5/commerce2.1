@@ -1,10 +1,10 @@
-import Post from '@/components/Post';
+import Post from '@/components/blog-post';
 import { postQuery } from '../../../lib/sanity/queries';
 import { sanityFetch, token } from '../../../lib/sanity/sanity-fetch';
-import PreviewProvider from '@/components/preview/PreviewProvider';
+import PreviewProvider from '@/components/preview/preview-provider';
 import { SanityDocument } from 'next-sanity';
 import { draftMode } from 'next/headers';
-import PreviewPost from '@/components/preview/PreviewPost';
+import PreviewPost from '@/components/preview/preview-post';
 
 export const runtime = 'edge';
 

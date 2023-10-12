@@ -1,9 +1,9 @@
 import Link from 'next/link';
 import React from 'react';
 import { Post } from '../lib/sanity/schemas/documents/post';
-import SanityImage from './SanityImage';
+import SanityImage from './sanity-image';
 
-export default function PostCard({ post }: { post: Post }) {
+export default function BlogCard({ post }: { post: Post }) {
   const date = new Date(post.publishedAt);
   const formattedDate = date.toLocaleDateString();
 

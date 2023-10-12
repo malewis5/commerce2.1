@@ -6,6 +6,8 @@ import { notFound } from 'next/navigation';
 import { IPage } from '@/lib/sanity/schemas/documents/page';
 import { RenderPage } from '@/components/page-builder';
 
+export const runtime = 'edge';
+
 export default async function Page({ params }: { params: { slug: string } }) {
   const page = await sanityFetch<SanityDocument<IPage>>({
     query: pageQuery,

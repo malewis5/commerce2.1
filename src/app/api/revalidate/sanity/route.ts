@@ -4,8 +4,6 @@ import { NextResponse } from 'next/server';
 
 const secret = process.env.SANITY_CONTENT_PAGE_WEBHOOK_SECRET ?? '';
 
-export const runtime = 'edge';
-
 export async function POST(request: Request) {
   const topic = request.headers.get('x-sanity-topic');
   const signature = request.headers.get(SIGNATURE_HEADER_NAME) || '';

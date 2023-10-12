@@ -5,8 +5,10 @@ import { Suspense } from 'react';
 
 export default function SearchLayout({
   children,
+  modal,
 }: {
   children: React.ReactNode;
+  modal: React.ReactNode;
 }) {
   return (
     <Suspense>
@@ -16,6 +18,7 @@ export default function SearchLayout({
         </div>
         <div className='order-last min-h-screen w-full md:order-none'>
           {children}
+          {modal}
         </div>
         <div className='order-none flex-none md:order-last md:w-[125px]'>
           <FilterList list={sorting} title='Sort by' />

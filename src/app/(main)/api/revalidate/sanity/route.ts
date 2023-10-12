@@ -13,53 +13,61 @@ export async function POST(request: Request) {
   const isPageUpdate = topic === 'page';
   const isNavigationUpdate = topic === 'navigation';
 
-  if (!isValidSignature(JSON.stringify(body), signature, secret)) {
-    console.error('Invalid sanity webhook secret');
-    return NextResponse.json({ status: 200 });
+  try {
+    if (!isValidSignature(JSON.stringify(body), signature, secret)) {
+      console.error('Invalid sanity webhook secret');
+      return NextResponse.json({ status: 200 });
+    }
+
+    if (!isBlogPageUpdate && !isPageUpdate && !isNavigationUpdate) {
+      return NextResponse.json({ status: 200 });
+    }
+
+    if (isBlogPageUpdate) {
+      console.log(
+        `Received webhook for ${topic} with body: ${JSON.stringify(body)}`
+      );
+
+      const slug = body.slug.current;
+      const tag = `${slug}`;
+
+      console.log(`Revalidating tag: ${tag}`);
+      revalidateTag(tag);
+
+      console.log(`Revalidating path: /blog`);
+      revalidatePath('/blog');
+    }
+
+    if (isPageUpdate) {
+      console.log(
+        `Received webhook for ${topic} with body: ${JSON.stringify(body)}`
+      );
+
+      const slug = body.slug.current;
+      const tag = `${slug}`;
+
+      console.log(`Revalidating tag: ${tag}`);
+      revalidateTag(tag);
+    }
+
+    if (isNavigationUpdate) {
+      console.log(
+        `Received webhook for ${topic} with body: ${JSON.stringify(body)}`
+      );
+
+      const slug = body.slug.current;
+      const tag = `${slug}`;
+
+      console.log(`Revalidating tag: ${tag}`);
+      revalidateTag(tag);
+    }
+
+    return NextResponse.json({
+      status: 200,
+      revalidated: true,
+      now: Date.now(),
+    });
+  } catch (error) {
+    console.log(`Error revalidating for topic: ${topic} with error: ${error}`);
   }
-
-  if (!isBlogPageUpdate && !isPageUpdate && !isNavigationUpdate) {
-    return NextResponse.json({ status: 200 });
-  }
-
-  if (isBlogPageUpdate) {
-    console.log(
-      `Received webhook for ${topic} with body: ${JSON.stringify(body)}`
-    );
-
-    const slug = body.slug.current;
-    const tag = `${slug}`;
-
-    console.log(`Revalidating tag: ${tag}`);
-    revalidateTag(tag);
-
-    console.log(`Revalidating path: /blog`);
-    revalidatePath('/blog');
-  }
-
-  if (isPageUpdate) {
-    console.log(
-      `Received webhook for ${topic} with body: ${JSON.stringify(body)}`
-    );
-
-    const slug = body.slug.current;
-    const tag = `${slug}`;
-
-    console.log(`Revalidating tag: ${tag}`);
-    revalidateTag(tag);
-  }
-
-  if (isNavigationUpdate) {
-    console.log(
-      `Received webhook for ${topic} with body: ${JSON.stringify(body)}`
-    );
-
-    const slug = body.slug.current;
-    const tag = `${slug}`;
-
-    console.log(`Revalidating tag: ${tag}`);
-    revalidateTag(tag);
-  }
-
-  return NextResponse.json({ status: 200, revalidated: true, now: Date.now() });
 }

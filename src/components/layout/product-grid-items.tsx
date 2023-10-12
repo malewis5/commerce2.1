@@ -2,7 +2,7 @@ import Grid from '@/components/grid';
 import { GridTileImage } from '@/components/grid/tile';
 import { Product } from '@/lib/shopify/types';
 import Link from 'next/link';
-import QuickView from '../quick-view';
+import QuickView from '../product/quick-view';
 
 export default function ProductGridItems({
   products,

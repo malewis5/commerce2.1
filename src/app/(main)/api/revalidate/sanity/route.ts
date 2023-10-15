@@ -55,7 +55,7 @@ export async function POST(request: Request) {
         `Received webhook for ${topic} with body: ${JSON.stringify(body)}`
       );
 
-      const slug = body.slug.current;
+      const slug = body.tag;
       const tag = `${slug}`;
 
       console.log(`Revalidating tag: ${tag}`);
@@ -69,5 +69,6 @@ export async function POST(request: Request) {
     });
   } catch (error) {
     console.log(`Error revalidating for topic: ${topic} with error: ${error}`);
+    return NextResponse.json({ status: 500, error, revalidated: false });
   }
 }
